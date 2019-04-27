@@ -13,25 +13,30 @@ Once you have cloned this repository you will need to open a terminal window (ma
 
 You will then need to change directory into the backend folder and run the command `npm install` this will install all the dependancies for the backend
 
-Once the previous step is complete you will need to change directory into the messenger folder and type `npm install` this will then install all the necessary depencancies to allow the react front end to work.
+Once the previous step is complete you will need to change directory into the messenger folder and type `npm install` this will then install all the necessary dependancies to allow the react front end to work.
 
-The script that launched this application is in the messenger folder so type `npm run launchApp` this will launch both the front and and the back end simultaniously and will present you with the login screen on your default browser.
+The script that launched this application is in the messenger folder so type `npm run launchApp` this will launch both the frontend and the backend simultaniously and will present you with the login screen on your default browser.
 
 Default logins have been created to get you started the username and password are `root` the second login details username and password are `test`. To change these locate the users.json files in the backend folder and open it in any text editor change to username and password details to something that you prefer
 
-A default room will has been created so you can get started right away
+A default room has been created so you can get started right away
 
 
-## This is not a secure messaging service everthing has been stored in plain text for educational purposes
+#### Note: The launch app script launches the application in development mode there is no production script as of yet
+
+
+## This is not a secure messaging service everything has been stored in plain text for educational purposes
 
 
 ### Features to come
 
-[] signup component to add new users
-[] emoji support
-[] file attachments
-[] deletion of rooms
-[] forwarding a message from one room to another
-[] password encryption
-[] JWT Authentication
-[] Sessions
+| Progress | Feature |
+|----------|---------|
+|[]        | signup component to add new users|
+|[]        |emoji support|
+|[]        |file attachments|
+|[]        |deletion of rooms|
+|[]        |forwarding a message from one room to another|
+|[]        |password encryption|
+|[]        |JWT Authentication|
+|[]        |Sessions|
