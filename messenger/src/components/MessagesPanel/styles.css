@@ -1,0 +1,33 @@
+.msg-window{
+    max-height: 100%;
+    overflow-y:auto;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+}
+.msg-window .internal-Message{
+    margin-left: auto;
+    max-width: 60%;
+    background-color: green;
+    border-radius: 20px;
+    color: white;
+    padding:5px 10px;
+    margin-top: 6px;
+    float:right;
+}
+.msg-window .external-Message{
+    margin-right: auto;
+    max-width: 60%;
+    background-color: lightgrey;
+    border-radius: 20px;
+    color: black;
+    padding:5px 10px;
+    margin-top: 6px;
+    float:left;
+    font-family: 'Roboto', sans-serif;
+}
+
+.msg-window .internal-Message p{
+    padding: 3px 10px;
+    font-family: 'Roboto', sans-serif;
+}

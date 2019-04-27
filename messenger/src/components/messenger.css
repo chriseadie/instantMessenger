@@ -1,0 +1,29 @@
+.settings-btn{
+    border: none;
+    background: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    height: 100%;
+    font-weight: bold;
+    font-size: 12px;
+}
+.headerBanner{
+    position: relative;
+}
+.settings-panel{
+    position:absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background:white;
+    border: 1px solid lightgrey;
+}
+.logout-btn{
+    border: none;
+    width: 100%;
+    padding: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid lightgray;
+}
