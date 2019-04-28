@@ -35,7 +35,10 @@ const App = () => {
         case 'ADD_NEW_ROOM':
           return {...state,mountedRooms:action.data};
         case 'SET_LATEST_MESSAGES':
-          return {...state,mountedRooms:action.data};
+          return {...state,
+            mountedRooms:action.data,
+            currentMessages:action.messages
+          };
       default:
         return state;
     }

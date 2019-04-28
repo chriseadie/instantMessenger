@@ -38,20 +38,35 @@ const InputControls = () => {
         })
     }
 
-    // const getLatestMessage = () => {
-    //     fetch('http://localhost:5000/api/GetChatRooms',{
-    //         method:"GET",
-    //         headers:{'Content-Type':'application/json'}
-    //     }).then(res => {
-    //         return res.json();
-    //     }).then((res) => {
-    //         dispatch({type:'SET_LATEST_MESSAGES',data:res})
-    //     })
-    // }
+    const getLatestMessage = () => {
+        fetch('http://localhost:5000/api/GetChatRooms',{
+            method:"GET",
+            headers:{'Content-Type':'application/json'}
+        }).then(res => {
+            return res.json();
+        }).then((res) => {
+            sortMessages(res)
+        })
+    }
+    const sortMessages = (res) => {
+        var current = res.find(item => {
+            return item.id === state.currentRoom
+         })
+         
+        if(current !== undefined){
+            dispatch({
+                type:'SET_LATEST_MESSAGES',
+                data:res, 
+                messages:current.replys
+            })
+        }
+        
+    }
 
-    // setInterval(() => {
-    //     getLatestMessage()
-    // },10000)
+    var getMsgs = setInterval(() => {
+        getLatestMessage()
+        clearInterval(getMsgs)
+    },10000)
 
     const createMessage = (message) => {
         const date = new Date();
