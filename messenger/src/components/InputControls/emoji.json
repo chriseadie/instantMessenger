@@ -1,0 +1,34 @@
+[
+    {
+        "name":"smilingface",
+        "value":"😀"
+    },
+    {
+        "name":"happyFace",
+        "value":"😃"
+    },
+    {
+        "name":"happy smile",
+        "value":"😄"
+    },
+    {
+        "name":"big smile",
+        "value":"😁"
+    },
+    {
+        "name":"XD face",
+        "value":"😆"
+    },
+    {
+        "name":"Guilty Face",
+        "value":"😅"
+    },
+    {
+        "name":"Crying Laughing",
+        "value":"😂"
+    },
+    {
+        "name":"Laughing Crying on Side Face",
+        "value":"🤣"
+    }
+]

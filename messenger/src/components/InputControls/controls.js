@@ -2,11 +2,14 @@ import React, {useState}from 'react';
 import './styles.css'
 import {useStateValue} from '../stateManager';
 import {guid} from '../helpers'
+import EmojiPanel from './emojiPanel'
 
 const InputControls = () => {
     const [messenger,updateMessage] = useState({
         value: '',
-        showSend:false
+        showSend:false,
+        showEmoji:false,
+        addHeight:''
     });
     const [state,dispatch] = useStateValue();
 
@@ -23,6 +26,19 @@ const InputControls = () => {
             updateMessage({...messenger,
                 value:e.target.value,
                 showSend:false
+            })
+        }
+        if(messenger.value.length > 86){
+            updateMessage({...messenger,
+                value:e.target.value,
+                showSend:true,
+                addHeight:'addHeight'
+            })
+        } else {
+            updateMessage({...messenger,
+                value:e.target.value,
+                showSend:true,
+                addHeight:''
             })
         }
     }
@@ -78,7 +94,6 @@ const InputControls = () => {
             messageId:guid(),
             chatRoomsId:state.currentRoom
         }
-
         fetch('http://localhost:5000/api/addMessageToChat',{
             method:'POST',
             body:JSON.stringify(msg),
@@ -86,19 +101,34 @@ const InputControls = () => {
         }).then((res) => {
             fetchAllRooms()
         })
-
-
         updateMessage({
             value:'',
             showSend:false
         })
-        
-        
+    }
+    const showEmojiPanel = () => {
+        updateMessage({...state,
+            showEmoji:!messenger.showEmoji,
+            value:messenger.value,
+            showSend:messenger.showSend
+        })
+    }
+
+    const handleEmoji = (data) => {
+        updateMessage({
+            value:data,
+            showSend:true,
+            showEmoji:false
+        })
     }
 
     return (
         <div className="control-wrapper">
-            <textarea name="messagePanel" value={messenger.value} className="text-input" placeholder="type your message" onChange={handleChange}/>
+            <textarea name="messagePanel" value={messenger.value} className={`text-input ${messenger.addHeight}`} placeholder="type your message" onChange={handleChange}/>
+            <button className="emojibutton" onClick={showEmojiPanel}>😀</button>
+            {messenger.showEmoji && (
+                <EmojiPanel text={messenger.value} handleEmoji={handleEmoji}/>
+            )}
             {messenger.showSend && (
                 <button className="messageButton" onClick={() => createMessage(messenger.value)}>Send</button>
             )}

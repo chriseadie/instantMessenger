@@ -33,7 +33,7 @@ A default room has been created so you can get started right away
 | Progress | Feature |
 |----------|---------|
 |[]        | signup component to add new users|
-|[]        |emoji support|
+|basic     |emoji support|
 |[]        |file attachments|
 |[]        |deletion of rooms|
 |[]        |forwarding a message from one room to another|
