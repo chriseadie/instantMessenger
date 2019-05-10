@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    cd ./messenger
+    cd ./backend
     npm install
-    npm run build
-  displayName: 'npm install and build'
+    node index.js
+  displayName: 'backend build'
