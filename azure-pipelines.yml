@@ -18,5 +18,4 @@ steps:
 - script: |
     cd ./backend
     npm install
-    node index.js
   displayName: 'backend build'
