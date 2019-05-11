@@ -49,7 +49,7 @@ const Login = () => {
                         <input name="password" type="password" placeholder="password" value={state.password} onChange={handleChange}/>
                     </div>
                     <div className="login-button">
-                        <button className="btn login-btn" onClick={() => signin()}>Login</button>
+                        <button className="btn login-btn" onClick={() => signin()}>Login.</button>
                     </div>
                 </div>
             </div>
