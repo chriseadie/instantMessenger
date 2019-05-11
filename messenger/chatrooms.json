@@ -1,8 +1,1 @@
-[
-  {
-    "id": "General",
-    "roomName": "#General",
-    "lastUpdated": "27/04/2019",
-    "replys": []
-  }
-]
+[{"id":"f8470df5-b1e3-425b-c9e8-6e420a0a6a2b","roomName":"# Hello","lastUpdated":"5/5/2019","replys":[{"user":"root","dateSend":"5/5/2019","value":"testing\n","userId":"a4a79369-c309-42c3-c0e7-f6626a9518e3","messageId":"5f36dbb4-849a-4b37-3a9e-7b685a49b343","chatRoomsId":"f8470df5-b1e3-425b-c9e8-6e420a0a6a2b"}]},{"id":"General","roomName":"#General","lastUpdated":"27/04/2019","replys":[{"user":"root","dateSend":"5/5/2019","value":"kjsdhfklajsdhflkasjdhf😆","userId":"a4a79369-c309-42c3-c0e7-f6626a9518e3","messageId":"7028025a-0675-4335-e698-14eeb4f5c94c","chatRoomsId":"General"}]}]

@@ -22,9 +22,10 @@ const Login = () => {
             username:state.username,
             password:state.password
         }
-        fetch('http://localhost:5000/api/signin',{
+        fetch('http://emessengerapi.azurewebsites.net/api/signin',{
             method:"POST",
             body:JSON.stringify(data),
+            mode:'no-cors',
             headers:{'Content-Type':'application/json'} 
         }).then((res) => {
             return res.json()

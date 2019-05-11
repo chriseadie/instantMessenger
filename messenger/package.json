@@ -8,7 +8,8 @@
     "build": "webpack --mode production",
     "launchServer":"node ../backend/index.js",
     "dev": "webpack-dev-server --mode development --open",
-    "launchApp":"npm run dev & npm run launchServer"
+    "launchApp":"npm run dev & npm run launchServer",
+    "reactLaunch":"node server.js"
   },
   "author": "",
   "license": "ISC",
