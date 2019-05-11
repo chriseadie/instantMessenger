@@ -40,3 +40,4 @@ A default room has been created so you can get started right away
 |[]        |password encryption|
 |[]        |JWT Authentication|
 |[]        |Sessions|
+|[]        |private chatroom & password protection|
