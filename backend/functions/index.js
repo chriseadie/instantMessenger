@@ -1,12 +1,24 @@
+const functions = require('firebase-functions');
 const express = require('express')
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const cors = require("cors")
 const app = express();
 const chatrooms = require('./chatrooms.json');
 const users = require('./users.json');
 const activeUser = require('./ActiveUsers.json')
 
-app.use(bodyParser.json())
+//app.use(bodyParser.json())
+
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./eadiemessengerapi-firebase-adminsdk-9h3ll-c34f5ff644.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://eadiemessengerapi.firebaseio.com"
+});
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -14,7 +26,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.post('/api/getActiveUsers',(req,res) => {
+app.use(cors({origin:true}))
+
+app.post('/getActiveUsers',(req,res) => {
     var url = req.body.activeUserParam
     var active = activeUser.find(item => {
      return item.session === url
@@ -22,7 +36,11 @@ app.post('/api/getActiveUsers',(req,res) => {
     res.send(active)
 })
 
-app.post('/api/signin', (req,res) => {
+app.get("/testing" , (req,res) => {
+    res.send("Hello World")
+})
+
+app.post('/signin', (req,res) => {
     var username  = req.body.username;
     var password = req.body.password;
     
@@ -51,12 +69,12 @@ app.post('/api/signin', (req,res) => {
     }
 })
 
-app.get('/api/GetChatRooms',(req,res) => {
+app.get('/GetChatRooms',(req,res) => {
     res.send(chatrooms)
     res.end()
 })
 
-app.post('/api/addNewRoom', (req,res) => {
+app.post('/addNewRoom', (req,res) => {
     var room = req.body
     console.log(room)
     const allRooms = chatrooms;
@@ -69,7 +87,7 @@ app.post('/api/addNewRoom', (req,res) => {
     })
 })
 
-app.post('/api/removeActiveUser',(req,res) => {
+app.post('/removeActiveUser',(req,res) => {
     const user = req.body.toDelete;
     var userToRemove = activeUser.findIndex(item => {
         return item.session === user
@@ -81,7 +99,7 @@ app.post('/api/removeActiveUser',(req,res) => {
     res.end()
 })
 
-app.post('/api/addMessageToChat',(req,res) => {
+app.post('/addMessageToChat',(req,res) => {
     var message = req.body
     var roomToUpdate = chatrooms.find(item => {
         return item.id === message.chatRoomsId
@@ -103,4 +121,9 @@ app.post('/api/addMessageToChat',(req,res) => {
 })
 
 
-app.listen(5000,() => {console.log('Server running on port 5000')})
+const api = functions.https.onRequest(app);
+
+module.exports = {
+    api
+}
+
