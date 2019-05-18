@@ -22,7 +22,7 @@ const Login = () => {
             username:state.username,
             password:state.password
         }
-        fetch('https://eadiemessengerapi.firebaseapp.com/api/signin',{
+        fetch('https://us-central1-eadiemessengerapi.cloudfunctions.netcd/api/signin',{
             method:"POST",
             body:JSON.stringify(data),
             mode:'no-cors',
